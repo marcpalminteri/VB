@@ -49,6 +49,12 @@ Partial Class frmTrainees
         Me.cboBirthCountry = New System.Windows.Forms.ComboBox()
         Me.lblBirthCounty = New System.Windows.Forms.Label()
         Me.cboBirthCounty = New System.Windows.Forms.ComboBox()
+        Me.lblManditory1 = New System.Windows.Forms.Label()
+        Me.lblManditory2 = New System.Windows.Forms.Label()
+        Me.lblManditory3 = New System.Windows.Forms.Label()
+        Me.lblManditory4 = New System.Windows.Forms.Label()
+        Me.lblManditory5 = New System.Windows.Forms.Label()
+        Me.lblManditory6 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'txtFirstname
@@ -283,11 +289,77 @@ Partial Class frmTrainees
         Me.cboBirthCounty.Size = New System.Drawing.Size(158, 21)
         Me.cboBirthCounty.TabIndex = 26
         '
+        'lblManditory1
+        '
+        Me.lblManditory1.AutoSize = True
+        Me.lblManditory1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblManditory1.Location = New System.Drawing.Point(262, 23)
+        Me.lblManditory1.Name = "lblManditory1"
+        Me.lblManditory1.Size = New System.Drawing.Size(15, 20)
+        Me.lblManditory1.TabIndex = 27
+        Me.lblManditory1.Text = "*"
+        '
+        'lblManditory2
+        '
+        Me.lblManditory2.AutoSize = True
+        Me.lblManditory2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblManditory2.Location = New System.Drawing.Point(262, 47)
+        Me.lblManditory2.Name = "lblManditory2"
+        Me.lblManditory2.Size = New System.Drawing.Size(15, 20)
+        Me.lblManditory2.TabIndex = 28
+        Me.lblManditory2.Text = "*"
+        '
+        'lblManditory3
+        '
+        Me.lblManditory3.AutoSize = True
+        Me.lblManditory3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblManditory3.Location = New System.Drawing.Point(262, 98)
+        Me.lblManditory3.Name = "lblManditory3"
+        Me.lblManditory3.Size = New System.Drawing.Size(15, 20)
+        Me.lblManditory3.TabIndex = 29
+        Me.lblManditory3.Text = "*"
+        '
+        'lblManditory4
+        '
+        Me.lblManditory4.AutoSize = True
+        Me.lblManditory4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblManditory4.Location = New System.Drawing.Point(262, 126)
+        Me.lblManditory4.Name = "lblManditory4"
+        Me.lblManditory4.Size = New System.Drawing.Size(15, 20)
+        Me.lblManditory4.TabIndex = 30
+        Me.lblManditory4.Text = "*"
+        '
+        'lblManditory5
+        '
+        Me.lblManditory5.AutoSize = True
+        Me.lblManditory5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblManditory5.Location = New System.Drawing.Point(544, 23)
+        Me.lblManditory5.Name = "lblManditory5"
+        Me.lblManditory5.Size = New System.Drawing.Size(15, 20)
+        Me.lblManditory5.TabIndex = 31
+        Me.lblManditory5.Text = "*"
+        '
+        'lblManditory6
+        '
+        Me.lblManditory6.AutoSize = True
+        Me.lblManditory6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblManditory6.Location = New System.Drawing.Point(544, 100)
+        Me.lblManditory6.Name = "lblManditory6"
+        Me.lblManditory6.Size = New System.Drawing.Size(15, 20)
+        Me.lblManditory6.TabIndex = 32
+        Me.lblManditory6.Text = "*"
+        '
         'frmTrainees
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(608, 544)
+        Me.Controls.Add(Me.lblManditory6)
+        Me.Controls.Add(Me.lblManditory5)
+        Me.Controls.Add(Me.lblManditory4)
+        Me.Controls.Add(Me.lblManditory3)
+        Me.Controls.Add(Me.lblManditory2)
+        Me.Controls.Add(Me.lblManditory1)
         Me.Controls.Add(Me.cboBirthCounty)
         Me.Controls.Add(Me.lblBirthCounty)
         Me.Controls.Add(Me.lblBirthCountry)
@@ -347,5 +419,11 @@ Partial Class frmTrainees
     Friend WithEvents cboBirthCountry As System.Windows.Forms.ComboBox
     Friend WithEvents lblBirthCounty As System.Windows.Forms.Label
     Friend WithEvents cboBirthCounty As System.Windows.Forms.ComboBox
+    Friend WithEvents lblManditory1 As System.Windows.Forms.Label
+    Friend WithEvents lblManditory2 As System.Windows.Forms.Label
+    Friend WithEvents lblManditory3 As System.Windows.Forms.Label
+    Friend WithEvents lblManditory4 As System.Windows.Forms.Label
+    Friend WithEvents lblManditory5 As System.Windows.Forms.Label
+    Friend WithEvents lblManditory6 As System.Windows.Forms.Label
 
 End Class
