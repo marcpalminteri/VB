@@ -12,7 +12,8 @@
     Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
         Dim FirstnameCorrect As Boolean = True
         Dim LastnameCorrect As Boolean = True
-        Dim DOBCorrect As Boolean = True
+        Dim AddressCorrect As Boolean = True
+        Dim PhoneCorrect As Boolean = True
 
         If txtFirstname.Text <> "" Then
             If CheckForAlphaCharacters(txtFirstname.Text) Then
@@ -31,7 +32,7 @@
                 strOutput = strOutput & txtLastname.Text & ", "
                 LastnameCorrect = True
             Else
-                MsgBox("Only enter characters in the 'Last Name' field")
+                MsgBox("Only enter characters into the 'Last Name' field")
                 Return
             End If
         Else
@@ -39,20 +40,35 @@
         End If
 
         If txtAddress1.Text = "" Then
-            MsgBox("Please enter the address")
+            AddressCorrect = False
+        End If
+
+        
+        If txtPhone.Text = "" Then
+            PhoneCorrect = False
+        ElseIf Not IsNumeric(txtPhone.Text) Then
+            MsgBox("Only enter numbers into the 'Phone Number' field")
             Return
         End If
 
-        If Not FirstnameCorrect Or Not LastnameCorrect Then
-            Dim errorMessage As String = "The following boxes are either incorrect or empty:"
+        If Not FirstnameCorrect Or Not LastnameCorrect Or Not AddressCorrect Or Not PhoneCorrect Then
+            Dim errorMessage As String = "The following boxes are empty:"
             If FirstnameCorrect = False Then
                 errorMessage = errorMessage & Environment.NewLine & "First name"
             End If
-            If FirstnameCorrect = False Then
-                errorMessage = errorMessage & Environment.NewLine & "First name"
+            If LastnameCorrect = False Then
+                errorMessage = errorMessage & Environment.NewLine & "Last name"
+            End If
+            If AddressCorrect = False Then
+                errorMessage = errorMessage & Environment.NewLine & "Address"
+            End If
+            If PhoneCorrect = False Then
+                errorMessage = errorMessage & Environment.NewLine & "Phone number"
             End If
             MsgBox(errorMessage)
+            Return
         End If
+        MsgBox(strOutput)
 
     End Sub
 
@@ -72,7 +88,7 @@
 
     Function CheckForAlphaCharacters(ByVal StringToCheck As String)
         For i = 0 To StringToCheck.Length - 1
-            If Not Char.IsLetter(StringToCheck.Chars(i)) Then
+            If Not Char.IsLetter(StringToCheck.Chars(i)) And Not Char.IsWhiteSpace(StringToCheck.Chars(i)) Then
                 Return False
             End If
         Next

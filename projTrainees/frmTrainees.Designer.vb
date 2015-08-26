@@ -237,7 +237,7 @@ Partial Class frmTrainees
         '
         'btnSubmit
         '
-        Me.btnSubmit.Location = New System.Drawing.Point(49, 411)
+        Me.btnSubmit.Location = New System.Drawing.Point(49, 233)
         Me.btnSubmit.Name = "btnSubmit"
         Me.btnSubmit.Size = New System.Drawing.Size(75, 23)
         Me.btnSubmit.TabIndex = 21
@@ -246,7 +246,7 @@ Partial Class frmTrainees
         '
         'btnExit
         '
-        Me.btnExit.Location = New System.Drawing.Point(161, 411)
+        Me.btnExit.Location = New System.Drawing.Point(161, 233)
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(75, 23)
         Me.btnExit.TabIndex = 22
@@ -353,7 +353,7 @@ Partial Class frmTrainees
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(608, 544)
+        Me.ClientSize = New System.Drawing.Size(566, 292)
         Me.Controls.Add(Me.lblManditory6)
         Me.Controls.Add(Me.lblManditory5)
         Me.Controls.Add(Me.lblManditory4)
