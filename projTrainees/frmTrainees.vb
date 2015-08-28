@@ -6,9 +6,10 @@ Public Class frmTrainees
     Dim connectionString As String = "Data Source=(LocalDB)\v11.0;AttachDbFilename= C:\Users\blue2.FASFG\Documents\vsprojects\VB\projTrainees\Bin\Debug\TraineesDB.mdf;Integrated Security=True"
     Dim sqlCon As SqlConnection = New SqlConnection(connectionString)
     Dim dataTbl As New DataTable
-    Dim size As Integer = 0
+    Dim dbSize As Integer = 0
     Dim current As Integer = 0
     Dim acceptable As Boolean = True
+    Dim newRow As Boolean = False
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DisableInput()
@@ -115,7 +116,7 @@ Public Class frmTrainees
             sqlCon.Open()
             Dim dataAd As New SqlDataAdapter("Select * from tblTrainees", sqlCon)
             dataAd.Fill(dataTbl)
-            size = dataTbl.Rows.Count
+            dbSize = dataTbl.Rows.Count
 
         Catch ex As Exception
             MsgBox("Database Error")
@@ -179,7 +180,7 @@ Public Class frmTrainees
 
     Function CheckForAlphaCharacters(ByVal StringToCheck As String)
         For i = 0 To StringToCheck.Length - 1
-            If Not Char.IsLetter(StringToCheck.Chars(i)) And Not Char.IsWhiteSpace(StringToCheck.Chars(i)) Then
+            If Not Char.IsLetter(StringToCheck.Chars(i)) And Not Char.IsWhiteSpace(StringToCheck.Chars(i)) And StringToCheck.Chars(i) <> "-" And StringToCheck.Chars(i) <> "'" Then
                 Return False
             End If
         Next
@@ -192,7 +193,7 @@ Public Class frmTrainees
     End Sub
 
     Private Sub btnNext_Click(sender As Object, e As EventArgs) Handles btnNext.Click
-        If current < (size - 1) Then
+        If current < (dbSize - 1) Then
             current = current + 1
             DisplayInfo(current)
         End If
@@ -206,7 +207,7 @@ Public Class frmTrainees
     End Sub
 
     Private Sub btnLast_Click(sender As Object, e As EventArgs) Handles btnLast.Click
-        current = size - 1
+        current = dbSize - 1
         DisplayInfo(current)
     End Sub
 
@@ -216,6 +217,12 @@ Public Class frmTrainees
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         EnableInput()
+        'Dim cmd As New System.Data.SqlClient.SqlCommand
+        'cmd.CommandType = System.Data.CommandType.Text
+        'cmd.CommandText = "INSERT tblTrainees (firstnName, lastName, gender, dateOfBirth, nationality, country, county, addressLine1, addressLine3, phoneNumber, email) VALUES ('', '', 'M',1-1-2000, 'Irish', 'Ireland', 'Dublin', '', '', 0, '')"
+
+        'cmd.ExecuteNonQuery()
+        btnLast.PerformClick()
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
