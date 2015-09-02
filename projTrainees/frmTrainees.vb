@@ -3,13 +3,14 @@ Imports System.Data.SqlClient
 
 Public Class frmTrainees
 
-    Dim connectionString As String = "Data Source=(LocalDB)\v11.0;AttachDbFilename= C:\Users\blue2.FASFG\Documents\vsprojects\VB\projTrainees\Bin\Debug\TraineesDB.mdf;Integrated Security=True"
+    Dim connectionString As String = "Data Source=(LocalDB)\v11.0;AttachDbFilename= C:\Users\blue2.FASFG\Documents\vsprojects\VB\projTrainees\TraineesDB.mdf;Integrated Security=True"
     Dim sqlCon As SqlConnection = New SqlConnection(connectionString)
     Dim dataTbl As New DataTable
     Dim dbSize As Integer = 0
     Dim current As Integer = 0
     Dim acceptable As Boolean = True
     Dim newRow As Boolean = False
+    Dim myDataSet As New DataSet("tblTrainees")
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DisableInput()
@@ -26,7 +27,7 @@ Public Class frmTrainees
                     ctrl.Enabled = True
                 End If
             Next
-
+            txtID.Enabled = False
         Catch ex As Exception
             MsgBox("Cannot disable input")
         End Try
@@ -39,7 +40,7 @@ Public Class frmTrainees
                     ctrl.Enabled = True
                 End If
             Next
-
+            txtID.Enabled = False
         Catch ex As Exception
             MsgBox("Cannot enable input")
         End Try
@@ -133,6 +134,7 @@ Public Class frmTrainees
                 rdoFemale.Checked = True
             End If
 
+            txtID.Text = dataTbl.Rows(index)("id")
             txtFirstname.Text = dataTbl.Rows(index)("firstName")
             txtLastname.Text = dataTbl.Rows(index)("lastName")
             dtpDateOfBirth.Text = dataTbl.Rows(index)("dateOfBirth")
@@ -217,12 +219,18 @@ Public Class frmTrainees
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         EnableInput()
-        'Dim cmd As New System.Data.SqlClient.SqlCommand
-        'cmd.CommandType = System.Data.CommandType.Text
-        'cmd.CommandText = "INSERT tblTrainees (firstnName, lastName, gender, dateOfBirth, nationality, country, county, addressLine1, addressLine3, phoneNumber, email) VALUES ('', '', 'M',1-1-2000, 'Irish', 'Ireland', 'Dublin', '', '', 0, '')"
+        Dim newRow As DataRow = dataTbl.NewRow()
+        dataTbl.Rows.Add(newRow)
 
-        'cmd.ExecuteNonQuery()
-        btnLast.PerformClick()
+        Dim newID As Integer
+        newID = Integer.Parse(dataTbl.Rows(dbSize - 1)("id")) + 1
+        For Each ctrl As Control In Me.Controls
+            If TypeOf ctrl Is TextBox Or TypeOf ctrl Is ComboBox Or TypeOf ctrl Is DateTimePicker Then
+                ctrl.Text = Nothing
+            End If
+            txtID.Text = newID
+        Next
+        dbSize = dbSize + 1
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
@@ -232,5 +240,46 @@ Public Class frmTrainees
         Else
             acceptable = True
         End If
+        'If txtID.Text > dataTbl.Rows(dbSize - 1)("id") Then
+        '    'Add a new row
+
+        '    MsgBox(dataTbl.Rows.Count)
+        '    Dim gen As String = String.Empty
+        '    If rdoMale.Checked Then
+        '        gen = "m"
+        '    Else
+        '        gen = "f"
+        '    End If
+        '    Dim myCommand As SqlCommand = New SqlCommand()
+        '    myCommand.Connection = sqlCon
+        '    myCommand.CommandText = "INSERT INTO tblTrainees (id, firstName, lastName, gender, datdOfBirth, nationality, country, county, addressLine1, addressLine2, addressLine3, phoneNumber, email) VALUES (@id, @firstName, @lastName, @gender, @datdOfBirth, @nationality, @country, @county, @addressLine1, @addressLine2, @phoneNumber, @email)"
+
+        '    Try
+        '        myCommand.Parameters.Add("@id", SqlDbType.Int).Value = txtID.Text
+        '        myCommand.Parameters.Add("@firstName", SqlDbType.VarChar).Value = txtFirstname.Text
+        '        myCommand.Parameters.Add("@lastName", SqlDbType.VarChar).Value = txtLastname.Text
+        '        myCommand.Parameters.Add("@gender", SqlDbType.Char).Value = gen
+        '        myCommand.Parameters.Add("@dateOfBirth", SqlDbType.Date).Value = dtpDateOfBirth.Value.Date
+        '        myCommand.Parameters.Add("@nationality", SqlDbType.VarChar).Value = cboNationality.Text
+        '        myCommand.Parameters.Add("@country", SqlDbType.VarChar).Value = cboBirthCountry.Text
+        '        myCommand.Parameters.Add("@county", SqlDbType.VarChar).Value = cboBirthCounty.Text
+        '        myCommand.Parameters.Add("@addressLine1", SqlDbType.VarChar).Value = txtAddress1.Text
+        '        myCommand.Parameters.Add("@addressLine2", SqlDbType.VarChar).Value = txtAddress2.Text
+        '        myCommand.Parameters.Add("@addressLine3", SqlDbType.VarChar).Value = cboAddress.Text
+        '        myCommand.Parameters.Add("@phoneNumber", SqlDbType.VarChar).Value = txtPhone.Text
+        '        myCommand.Parameters.Add("@country", SqlDbType.VarChar).Value = cboBirthCountry.Text
+        '        myCommand.Parameters.Add("@email", SqlDbType.VarChar).Value = txtEmail.Text
+        '        myCommand.ExecuteNonQuery()
+
+        '        MsgBox(dataTbl.Rows.Count)
+        '    Catch ex As Exception
+        '        MsgBox("Failed")
+        '    End Try
+
+        '    'MsgBox("INSERT INTO tblTrainees (id, firstName, lastName, gender, datdOfBirth, nationality, country, county, addressLine1, addressLine2, phoneNumber, email) VALUES (" & txtID.Text & ", '" & txtFirstname.Text & "', '" & txtLastname.Text & "', '" & gen & "', " & dtpDateOfBirth.Value.Date & ", '" & cboNationality.Text & "', '" & cboBirthCountry.Text & "', '" & cboBirthCounty.Text & "', '" & txtAddress1.Text & "', '" & cboAddress.Text & "', " & txtPhone.Text & ", '" & txtEmail.Text & "')")
+
+        'Else
+        'Update an old row
+        'End If
     End Sub
 End Class

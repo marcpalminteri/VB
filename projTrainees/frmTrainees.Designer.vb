@@ -35,7 +35,7 @@ Partial Class frmTrainees
         Me.txtAddress1 = New System.Windows.Forms.TextBox()
         Me.txtAddress2 = New System.Windows.Forms.TextBox()
         Me.cboNationality = New System.Windows.Forms.ComboBox()
-        Me.txtNationality = New System.Windows.Forms.Label()
+        Me.lblNationality = New System.Windows.Forms.Label()
         Me.cboAddress = New System.Windows.Forms.ComboBox()
         Me.lblPhone = New System.Windows.Forms.Label()
         Me.txtPhone = New System.Windows.Forms.TextBox()
@@ -62,6 +62,7 @@ Partial Class frmTrainees
         Me.btnLast = New System.Windows.Forms.Button()
         Me.btnEdit = New System.Windows.Forms.Button()
         Me.btnSave = New System.Windows.Forms.Button()
+        Me.txtID = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'txtFirstname
@@ -175,14 +176,14 @@ Partial Class frmTrainees
         Me.cboNationality.Size = New System.Drawing.Size(140, 21)
         Me.cboNationality.TabIndex = 12
         '
-        'txtNationality
+        'lblNationality
         '
-        Me.txtNationality.AutoSize = True
-        Me.txtNationality.Location = New System.Drawing.Point(11, 132)
-        Me.txtNationality.Name = "txtNationality"
-        Me.txtNationality.Size = New System.Drawing.Size(59, 13)
-        Me.txtNationality.TabIndex = 13
-        Me.txtNationality.Text = "Nationality:"
+        Me.lblNationality.AutoSize = True
+        Me.lblNationality.Location = New System.Drawing.Point(11, 132)
+        Me.lblNationality.Name = "lblNationality"
+        Me.lblNationality.Size = New System.Drawing.Size(59, 13)
+        Me.lblNationality.TabIndex = 13
+        Me.lblNationality.Text = "Nationality:"
         '
         'cboAddress
         '
@@ -424,12 +425,21 @@ Partial Class frmTrainees
         Me.btnSave.Text = "Save"
         Me.btnSave.UseVisualStyleBackColor = True
         '
+        'txtID
+        '
+        Me.txtID.Location = New System.Drawing.Point(290, 66)
+        Me.txtID.Name = "txtID"
+        Me.txtID.Size = New System.Drawing.Size(23, 20)
+        Me.txtID.TabIndex = 40
+        Me.txtID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
         'frmTrainees
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.SkyBlue
         Me.ClientSize = New System.Drawing.Size(611, 273)
+        Me.Controls.Add(Me.txtID)
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.btnEdit)
         Me.Controls.Add(Me.btnLast)
@@ -456,7 +466,7 @@ Partial Class frmTrainees
         Me.Controls.Add(Me.txtPhone)
         Me.Controls.Add(Me.lblPhone)
         Me.Controls.Add(Me.cboAddress)
-        Me.Controls.Add(Me.txtNationality)
+        Me.Controls.Add(Me.lblNationality)
         Me.Controls.Add(Me.cboNationality)
         Me.Controls.Add(Me.txtAddress2)
         Me.Controls.Add(Me.txtAddress1)
@@ -470,6 +480,8 @@ Partial Class frmTrainees
         Me.Controls.Add(Me.txtLastname)
         Me.Controls.Add(Me.lblFirstname)
         Me.Controls.Add(Me.txtFirstname)
+        Me.MaximumSize = New System.Drawing.Size(627, 311)
+        Me.MinimumSize = New System.Drawing.Size(627, 311)
         Me.Name = "frmTrainees"
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -488,7 +500,7 @@ Partial Class frmTrainees
     Friend WithEvents txtAddress1 As System.Windows.Forms.TextBox
     Friend WithEvents txtAddress2 As System.Windows.Forms.TextBox
     Friend WithEvents cboNationality As System.Windows.Forms.ComboBox
-    Friend WithEvents txtNationality As System.Windows.Forms.Label
+    Friend WithEvents lblNationality As System.Windows.Forms.Label
     Friend WithEvents cboAddress As System.Windows.Forms.ComboBox
     Friend WithEvents lblPhone As System.Windows.Forms.Label
     Friend WithEvents txtPhone As System.Windows.Forms.TextBox
@@ -515,5 +527,6 @@ Partial Class frmTrainees
     Friend WithEvents btnLast As System.Windows.Forms.Button
     Friend WithEvents btnEdit As System.Windows.Forms.Button
     Friend WithEvents btnSave As System.Windows.Forms.Button
+    Friend WithEvents txtID As System.Windows.Forms.TextBox
 
 End Class
