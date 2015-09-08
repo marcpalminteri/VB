@@ -12,7 +12,7 @@ Public Class frmTrainees
     Dim newRow As Boolean = False
     Dim myDataSet As New DataSet("tblTrainees")
     Dim queryType As String = String.Empty
-    Dim query As String = String.Empty
+    Dim query As String = "update"
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DisableInput()
@@ -277,6 +277,10 @@ Public Class frmTrainees
                     End Using
                 End Using
                 queryType = "update"
+
+            Case "update"
+
+
         End Select
 
         btnFirst.Enabled = True
