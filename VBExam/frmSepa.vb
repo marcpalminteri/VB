@@ -81,7 +81,7 @@
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        'Check the input fields. If they boolean "acceptable" is set to False then do not continue
+        'Check the input fields. If the boolean "acceptable" is set to False then do not continue
         CheckInput()
         If acceptable = False Then
             acceptable = True
