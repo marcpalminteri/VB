@@ -45,6 +45,7 @@
     'This method checks to see if the inputed data is valid
     Private Sub CheckInput()
         'If the "Account Transfer" button is checked then...
+        acceptable = True
         If rdoAccountTransfer.Checked Then
             'See if the "To" or "From" fields are and error if either are
             If cboATFrom.Text = "" Or cboATTo.Text = "" Then
@@ -75,6 +76,7 @@
         Else
             If Not IsNumeric(txtAmount.Text) Then
                 MessageBox.Show("Only enter numbers into the 'Amount' field")
+                acceptable = False
                 Return
             End If
         End If
@@ -84,7 +86,6 @@
         'Check the input fields. If the boolean "acceptable" is set to False then do not continue
         CheckInput()
         If acceptable = False Then
-            acceptable = True
             Return
         End If
 
