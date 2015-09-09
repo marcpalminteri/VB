@@ -31,12 +31,14 @@ Partial Class frmSepa
         Me.cboATTo = New System.Windows.Forms.ComboBox()
         Me.cboATFrom = New System.Windows.Forms.ComboBox()
         Me.gpbPayees = New System.Windows.Forms.GroupBox()
+        Me.txtPIBAN = New System.Windows.Forms.TextBox()
+        Me.txtPName = New System.Windows.Forms.TextBox()
+        Me.lblPName = New System.Windows.Forms.Label()
+        Me.txtPBIC = New System.Windows.Forms.TextBox()
+        Me.lblPIBAN = New System.Windows.Forms.Label()
         Me.lblPFrom = New System.Windows.Forms.Label()
         Me.cboPFrom = New System.Windows.Forms.ComboBox()
         Me.lblPBIC = New System.Windows.Forms.Label()
-        Me.lblPIBAN = New System.Windows.Forms.Label()
-        Me.txtPBIC = New System.Windows.Forms.TextBox()
-        Me.txtPIBAN = New System.Windows.Forms.TextBox()
         Me.txtAmount = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblAmount = New System.Windows.Forms.Label()
@@ -46,8 +48,6 @@ Partial Class frmSepa
         Me.btnSave = New System.Windows.Forms.Button()
         Me.btnCancal = New System.Windows.Forms.Button()
         Me.btnExit = New System.Windows.Forms.Button()
-        Me.txtPName = New System.Windows.Forms.TextBox()
-        Me.lblPName = New System.Windows.Forms.Label()
         Me.VBExamDBDataSet = New VBExam.VBExamDBDataSet()
         Me.TblSepaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TblSepaTableAdapter = New VBExam.VBExamDBDataSetTableAdapters.tblSepaTableAdapter()
@@ -118,7 +118,7 @@ Partial Class frmSepa
         Me.cboATTo.Location = New System.Drawing.Point(56, 40)
         Me.cboATTo.Name = "cboATTo"
         Me.cboATTo.Size = New System.Drawing.Size(183, 21)
-        Me.cboATTo.TabIndex = 1
+        Me.cboATTo.TabIndex = 3
         '
         'cboATFrom
         '
@@ -128,7 +128,7 @@ Partial Class frmSepa
         Me.cboATFrom.Location = New System.Drawing.Point(56, 13)
         Me.cboATFrom.Name = "cboATFrom"
         Me.cboATFrom.Size = New System.Drawing.Size(183, 21)
-        Me.cboATFrom.TabIndex = 0
+        Me.cboATFrom.TabIndex = 2
         '
         'gpbPayees
         '
@@ -145,6 +145,48 @@ Partial Class frmSepa
         Me.gpbPayees.Size = New System.Drawing.Size(251, 124)
         Me.gpbPayees.TabIndex = 3
         Me.gpbPayees.TabStop = False
+        '
+        'txtPIBAN
+        '
+        Me.txtPIBAN.Location = New System.Drawing.Point(56, 92)
+        Me.txtPIBAN.MaxLength = 14
+        Me.txtPIBAN.Name = "txtPIBAN"
+        Me.txtPIBAN.Size = New System.Drawing.Size(107, 20)
+        Me.txtPIBAN.TabIndex = 5
+        '
+        'txtPName
+        '
+        Me.txtPName.Location = New System.Drawing.Point(56, 40)
+        Me.txtPName.MaxLength = 30
+        Me.txtPName.Name = "txtPName"
+        Me.txtPName.Size = New System.Drawing.Size(183, 20)
+        Me.txtPName.TabIndex = 3
+        '
+        'lblPName
+        '
+        Me.lblPName.AutoSize = True
+        Me.lblPName.Location = New System.Drawing.Point(6, 43)
+        Me.lblPName.Name = "lblPName"
+        Me.lblPName.Size = New System.Drawing.Size(38, 13)
+        Me.lblPName.TabIndex = 7
+        Me.lblPName.Text = "Name:"
+        '
+        'txtPBIC
+        '
+        Me.txtPBIC.Location = New System.Drawing.Point(56, 66)
+        Me.txtPBIC.MaxLength = 8
+        Me.txtPBIC.Name = "txtPBIC"
+        Me.txtPBIC.Size = New System.Drawing.Size(73, 20)
+        Me.txtPBIC.TabIndex = 4
+        '
+        'lblPIBAN
+        '
+        Me.lblPIBAN.AutoSize = True
+        Me.lblPIBAN.Location = New System.Drawing.Point(6, 95)
+        Me.lblPIBAN.Name = "lblPIBAN"
+        Me.lblPIBAN.Size = New System.Drawing.Size(35, 13)
+        Me.lblPIBAN.TabIndex = 8
+        Me.lblPIBAN.Text = "IBAN:"
         '
         'lblPFrom
         '
@@ -163,7 +205,7 @@ Partial Class frmSepa
         Me.cboPFrom.Location = New System.Drawing.Point(56, 13)
         Me.cboPFrom.Name = "cboPFrom"
         Me.cboPFrom.Size = New System.Drawing.Size(183, 21)
-        Me.cboPFrom.TabIndex = 4
+        Me.cboPFrom.TabIndex = 2
         '
         'lblPBIC
         '
@@ -174,37 +216,12 @@ Partial Class frmSepa
         Me.lblPBIC.TabIndex = 7
         Me.lblPBIC.Text = "BIC:"
         '
-        'lblPIBAN
-        '
-        Me.lblPIBAN.AutoSize = True
-        Me.lblPIBAN.Location = New System.Drawing.Point(6, 95)
-        Me.lblPIBAN.Name = "lblPIBAN"
-        Me.lblPIBAN.Size = New System.Drawing.Size(35, 13)
-        Me.lblPIBAN.TabIndex = 8
-        Me.lblPIBAN.Text = "IBAN:"
-        '
-        'txtPBIC
-        '
-        Me.txtPBIC.Location = New System.Drawing.Point(56, 66)
-        Me.txtPBIC.MaxLength = 8
-        Me.txtPBIC.Name = "txtPBIC"
-        Me.txtPBIC.Size = New System.Drawing.Size(73, 20)
-        Me.txtPBIC.TabIndex = 9
-        '
-        'txtPIBAN
-        '
-        Me.txtPIBAN.Location = New System.Drawing.Point(56, 92)
-        Me.txtPIBAN.MaxLength = 14
-        Me.txtPIBAN.Name = "txtPIBAN"
-        Me.txtPIBAN.Size = New System.Drawing.Size(107, 20)
-        Me.txtPIBAN.TabIndex = 10
-        '
         'txtAmount
         '
         Me.txtAmount.Location = New System.Drawing.Point(68, 165)
         Me.txtAmount.Name = "txtAmount"
         Me.txtAmount.Size = New System.Drawing.Size(107, 20)
-        Me.txtAmount.TabIndex = 13
+        Me.txtAmount.TabIndex = 6
         '
         'Label1
         '
@@ -230,7 +247,7 @@ Partial Class frmSepa
         Me.txtReference.MaxLength = 15
         Me.txtReference.Name = "txtReference"
         Me.txtReference.Size = New System.Drawing.Size(183, 20)
-        Me.txtReference.TabIndex = 16
+        Me.txtReference.TabIndex = 8
         '
         'lblReference
         '
@@ -246,14 +263,14 @@ Partial Class frmSepa
         Me.dtpDate.Location = New System.Drawing.Point(68, 191)
         Me.dtpDate.Name = "dtpDate"
         Me.dtpDate.Size = New System.Drawing.Size(183, 20)
-        Me.dtpDate.TabIndex = 17
+        Me.dtpDate.TabIndex = 7
         '
         'btnSave
         '
         Me.btnSave.Location = New System.Drawing.Point(284, 56)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(75, 40)
-        Me.btnSave.TabIndex = 18
+        Me.btnSave.TabIndex = 9
         Me.btnSave.Text = "Submit"
         Me.btnSave.UseVisualStyleBackColor = True
         '
@@ -262,7 +279,7 @@ Partial Class frmSepa
         Me.btnCancal.Location = New System.Drawing.Point(284, 119)
         Me.btnCancal.Name = "btnCancal"
         Me.btnCancal.Size = New System.Drawing.Size(75, 40)
-        Me.btnCancal.TabIndex = 19
+        Me.btnCancal.TabIndex = 10
         Me.btnCancal.Text = "Cancel"
         Me.btnCancal.UseVisualStyleBackColor = True
         '
@@ -271,26 +288,9 @@ Partial Class frmSepa
         Me.btnExit.Location = New System.Drawing.Point(284, 182)
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(75, 40)
-        Me.btnExit.TabIndex = 20
+        Me.btnExit.TabIndex = 11
         Me.btnExit.Text = "Exit"
         Me.btnExit.UseVisualStyleBackColor = True
-        '
-        'txtPName
-        '
-        Me.txtPName.Location = New System.Drawing.Point(56, 40)
-        Me.txtPName.MaxLength = 30
-        Me.txtPName.Name = "txtPName"
-        Me.txtPName.Size = New System.Drawing.Size(183, 20)
-        Me.txtPName.TabIndex = 12
-        '
-        'lblPName
-        '
-        Me.lblPName.AutoSize = True
-        Me.lblPName.Location = New System.Drawing.Point(6, 43)
-        Me.lblPName.Name = "lblPName"
-        Me.lblPName.Size = New System.Drawing.Size(38, 13)
-        Me.lblPName.TabIndex = 7
-        Me.lblPName.Text = "Name:"
         '
         'VBExamDBDataSet
         '
@@ -331,7 +331,7 @@ Partial Class frmSepa
         Me.Controls.Add(Me.rdoPayees)
         Me.Controls.Add(Me.lblAmount)
         Me.Controls.Add(Me.rdoAccountTransfer)
-        Me.MaximumSize = New System.Drawing.Size(391, 290)
+        Me.MaximumSize = New System.Drawing.Size(1000, 1000)
         Me.MinimumSize = New System.Drawing.Size(391, 290)
         Me.Name = "frmSepa"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

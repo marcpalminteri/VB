@@ -69,7 +69,7 @@
             End If
         End If
 
-        'Check if the entered data is a number and, if so, round the value to 2 decimal places
+        'Check if the data entered into "Amount" is a number and, if so, round the value to 2 decimal places
         Dim dbl As Double
         If Double.TryParse(txtAmount.Text, dbl) Then
             txtAmount.Text = String.Format("{0:n2}", dbl)
@@ -79,6 +79,13 @@
                 acceptable = False
                 Return
             End If
+        End If
+
+        'Check if the BIC is contained in the IBAN
+        If Not txtPIBAN.Text.Contains(txtPBIC.Text) Then
+            MessageBox.Show("The IBAN must contain the BIC", "Error")
+            acceptable = False
+            Return
         End If
     End Sub
 
@@ -100,6 +107,7 @@
         Me.Validate()
         Me.TblSepaBindingSource.EndEdit()
         Me.TableAdapterManager.UpdateAll(Me.VBExamDBDataSet)
+        MessageBox.Show("Transaction successful")
     End Sub
 
     'Give the user a check to see if they really want to clear all fields
