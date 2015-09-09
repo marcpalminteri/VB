@@ -1,7 +1,10 @@
 ﻿Public Class frmSepa
 
+    '**************************************************************************************************************************'
+    'This program adds information to the database in the bin/debug folder, not the one visual studios uses to test the program'
+    '**************************************************************************************************************************'
+
     Dim acceptable As Boolean = True
-    Dim insertType As String = "AccountTransfer"
 
     Private Sub frmSepa_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.TblSepaTableAdapter.Fill(Me.VBExamDBDataSet.tblSepa)
@@ -16,11 +19,9 @@
         If rdoAccountTransfer.Checked = True Then
             gpbAccountTransfer.Visible = True
             gpbPayees.Visible = False
-            insertType = "AccountTransfer"
         Else
             gpbAccountTransfer.Visible = False
             gpbPayees.Visible = True
-            insertType = "Payees"
         End If
     End Sub
 
@@ -97,7 +98,7 @@
         End If
 
         'See if the insert type is for an "Account Transfer" or "Payees" and use the according insert
-        If insertType = "AccountTransfer" Then
+        If rdoAccountTransfer.Checked Then
             Me.TblSepaTableAdapter.InsertAccountTransfer(dtpDate.Value.Date, Decimal.Parse(txtAmount.Text), cboATFrom.Text, cboATTo.Text, txtReference.Text)
         Else
             Me.TblSepaTableAdapter.InsertPayees(txtPName.Text, dtpDate.Value.Date, Decimal.Parse(txtAmount.Text), txtPBIC.Text, txtPIBAN.Text, cboPFrom.Text, txtReference.Text)

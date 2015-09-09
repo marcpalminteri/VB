@@ -1240,11 +1240,11 @@ Namespace VBExamDBDataSetTableAdapters
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(2).Connection = Me.Connection
             Me._commandCollection(2).CommandText = "INSERT INTO [dbo].[tblSepa] ([payeeName], [sepaDate], [amount], [bic], [iban], [p" & _
-                "ayeeOrAccount], [fromAccount], [reference]) VALUES (@name, @date, @amount, @bic," & _
-                " @iban, 0, @from, @reference);"
+                "ayeeOrAccount], [fromAccount], [reference]) VALUES (@name, @sepaDate, @amount, @" & _
+                "bic, @iban, 0, @from, @reference);"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@name", Global.System.Data.SqlDbType.VarChar, 30, Global.System.Data.ParameterDirection.Input, 0, 0, "payeeName", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@date", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "sepaDate", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@sepaDate", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "sepaDate", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@amount", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 2, "amount", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@bic", Global.System.Data.SqlDbType.VarChar, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "bic", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@iban", Global.System.Data.SqlDbType.VarChar, 14, Global.System.Data.ParameterDirection.Input, 0, 0, "iban", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
@@ -1681,17 +1681,17 @@ Namespace VBExamDBDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, False)> _
-        Public Overridable Overloads Function InsertPayees(ByVal name As String, ByVal _date As String, ByVal amount As Global.System.Nullable(Of Decimal), ByVal bic As String, ByVal iban As String, ByVal from As String, ByVal reference As String) As Integer
+        Public Overridable Overloads Function InsertPayees(ByVal name As String, ByVal sepaDate As String, ByVal amount As Global.System.Nullable(Of Decimal), ByVal bic As String, ByVal iban As String, ByVal from As String, ByVal reference As String) As Integer
             Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(2)
             If (name Is Nothing) Then
                 command.Parameters(0).Value = Global.System.DBNull.Value
             Else
                 command.Parameters(0).Value = CType(name, String)
             End If
-            If (_date Is Nothing) Then
+            If (sepaDate Is Nothing) Then
                 command.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(1).Value = CType(_date, String)
+                command.Parameters(1).Value = CType(sepaDate, String)
             End If
             If (amount.HasValue = True) Then
                 command.Parameters(2).Value = CType(amount.Value, Decimal)
